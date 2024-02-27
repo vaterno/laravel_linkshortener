@@ -24,7 +24,7 @@ class ShortenerController extends Controller
     ) {
         try {
             /** @var UrlShorter $urlShorter */
-            $urlShorter = $urlShorterService->make(
+            $urlShorter = $urlShorterService->makeOrFind(
                 $request->get('url')
             );
 

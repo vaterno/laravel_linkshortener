@@ -16,7 +16,7 @@ class UrlShorterService
     ) {
     }
 
-    public function make(string $urlToShort, int $generatorLength = 5): UrlShorter
+    public function makeOrFind(string $urlToShort, int $generatorLength = 5): UrlShorter
     {
         if (!Str::isUrl($urlToShort)) {
             throw new IsNotUrlException();

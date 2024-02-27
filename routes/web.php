@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShortenerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/{shortcode}', [ShortenerController::class, 'redirect'])
+    ->where('shortcode', '([a-zA-Z0-9]{' . config('linkshorter.generator_length') . '})');
